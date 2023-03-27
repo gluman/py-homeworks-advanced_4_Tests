@@ -10,6 +10,10 @@ geo_logs = [
     {'visit9': ['Курск', 'Россия']},
     {'visit10': ['Архангельск', 'Россия']}
 ]
+ids = {'user1': [213, 213, 213, 15, 213],
+       'user2': [54, 54, 119, 119, 119],
+       'user3': [213, 98, 98, 35]}
+
 def remove_some_country(country):
     for items in geo_logs:
         values = items.values()
@@ -21,4 +25,15 @@ def remove_some_country(country):
 
 remove_some_country('Россия')
 print(geo_logs)
+
+def get_unic_values():
+    temp_list = []
+    for items in ids.values():
+        temp_list += items
+
+    unic_values = list(set(temp_list))
+    return unic_values
+
+get_unic_values()
+
 
