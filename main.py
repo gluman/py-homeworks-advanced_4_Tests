@@ -10,16 +10,15 @@ geo_logs = [
     {'visit9': ['Курск', 'Россия']},
     {'visit10': ['Архангельск', 'Россия']}
 ]
-def remove_foreign_countries():
+def remove_some_country(country):
     for items in geo_logs:
         values = items.values()
         for item in values:
-            if 'Россия' not in item:
+            if country not in item:
                 geo_logs.remove(items)
-                remove_foreign_countries()
+                remove_some_country(country)
+    return geo_logs
 
-remove_foreign_countries()
+remove_some_country('Россия')
 print(geo_logs)
-
-
 
